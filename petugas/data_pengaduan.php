@@ -93,7 +93,7 @@
                             <div class="card card-primary card-outline">
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <h5 class=" m-0" style="font-size:30px">Tulis Pengaduan</h5>
+                                        <h5 class=" m-0" style="font-size:30px">Data Pengaduan</h5>
                                     </div>
                                     <!-- <div class="card-tools">
                                         <button type="button" class="btn btn-success px-4" data-toggle="modal"
@@ -141,7 +141,7 @@
                                                         <span class="badge bg-warning">Menunggu</span>
                                                     <?php } else if ($row['status'] == 'proses') { ?>
                                                         <span class="badge bg-primary">Proses</span>
-                                                    <?php } else if ($row['status'] == 'tolak') { ?>
+                                                    <?php } else if ($row['status'] == 'ditolak') { ?>
                                                         <span class="badge bg-danger">Tolak</span>
                                                     <?php } else { ?>
                                                         <span class="badge bg-success">Selesai</span>
@@ -177,14 +177,8 @@
                                                                     <input type="hidden" name="id_pengaduan" value="<?= $row['id_pengaduan']; ?>">
                                                                     
                                                                     <?php
-                                                                    
-                                                                        include '../php/koneksi/koneksi.php';
-
+        
                                                                         $id_petugas = $_SESSION['id_petugas'];
-
-                                                                        $petugas_login = mysqli_query($koneksi, "SELECT * FROM petugas WHERE id_petugas='$id_petugas'");
-                                                                        $rows = mysqli_fetch_assoc($petugas_login);
-                                                                            # code...
                                                                         
                                                                     ?>
                                                                     <input type="hidden" name="id_petugas" value="<?= $id_petugas ?>">

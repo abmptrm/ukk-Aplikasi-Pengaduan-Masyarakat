@@ -32,7 +32,7 @@
                     echo "<script>alert('Data Berhasil Di Update'); window.location='../../pengaduan.php'</script>";
                 }
             } else {
-                echo "<script>alert('Ekstensi gambar yang boleh hanya jpg, jpeg dan png.');window.location='../../pengaduan.php';</script>";
+                echo "<script>alert('Ekstensi gambar yang boleh hanya jpg, jpeg dan png.'); window.location='../../pengaduan.php';</script>";
             }
 
         }else {

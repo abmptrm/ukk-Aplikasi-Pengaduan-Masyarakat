@@ -261,13 +261,7 @@
                                                         <input type="text" name="nik" value="<?= $data['nik']; ?>" hidden>
                                                         <textarea class="form-control" rows="3" name="isi-laporan" placeholder="Isi Laporan"></textarea>
                                                     </div>
-                                                    <!-- <div class="form-group">
-                                                        <div class="input-group">
-                                                            <div class="custom-file">
-                                                                <input type="file" name="foto" class="form-control">
-                                                            </div>
-                                                        </div>
-                                                    </div> -->
+                                                    
                                                     <div class="form-group">
                                                         <label for="">Upload Foto</label>
                                                         <div class="input-group mb-3">

@@ -46,7 +46,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <ul class="navbar-nav text-center" style="font-size:17px">
                     <li class="nav-item">
-                        <a href="beranda.php" class="nav-link">Home</a>
+                        <a href="beranda.php" class="nav-link active">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="data_pengaduan.php" class="nav-link">Data Pengaduan</a>

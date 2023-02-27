@@ -18,5 +18,7 @@
     // Hapus Data
     mysqli_query($koneksi, "DELETE FROM pengaduan WHERE id_pengaduan='$id_pengaduan'");
 
-    header('location: ../../pengaduan.php');
+    
+        echo "<script> alert ('Data Berhasil Di Hapus! '); document.location.href = '../../pengaduan.php';</script>";
+
 ?>
