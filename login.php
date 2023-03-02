@@ -28,6 +28,12 @@
                 <center><img src="assets/image/user.png" alt="admin" width="70" class="mb-2"></center>
                 <p class="login-box-msg font-weight-bold" style="font-size: 18px;"> Masyarakat</p>
 
+                <?php
+                    if (isset($_GET['info'])) {
+                        
+                    }
+                ?>
+
                 <?php 
                     if(isset($_GET['info'])){
                     if($_GET['info'] == "gagal"){ ?>
@@ -55,7 +61,7 @@
                         </div>
 
                         
-                    <?php }else if($_GET['info'] == "login"){ ?>
+                    <?php }else if($_GET['info'] == "belum_login"){ ?>
                         <div class="col-md-12">
                             <div class="card bg-gradient-info">
                                 <!-- /.card-header -->
@@ -66,7 +72,7 @@
                             </div>
                             <!-- /.card -->
                         </div>
-                    <?php } } ?>
+                    <?php } }?>
 
                     <br>
 

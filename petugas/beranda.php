@@ -58,8 +58,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </ul>
 
                 <div class="nav-item">
-                    <a class="nav-link" href="../logout.php">
-                        <i class="fas fa-user"></i>
+                    <a class="nav-link bg-danger font-weight-bold rounded" href="../logout.php">
+                        <i class="fas fa-sign-out-alt pr-1"></i>
                         LOGOUT
                     </a>
                 </div>
@@ -94,7 +94,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                             <div class="card card-primary card-outline">
                                 <div class="card-header">
-                                    <h5 class="card-title m-0" style="font-size:30px">Home</h5>
+                                    <h5 class="card-title m-0" style="font-size:30px">Selamat Datang - <?= $_SESSION['nama_petugas'] ?></h5>
                                     
                                 </div>
 
@@ -674,8 +674,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../assets/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../assets/dist/js/demo.js"></script>
+
 </body>
 
 </html>

@@ -1,3 +1,14 @@
+<?php 
+    session_start();
+
+    // cek apakah yang mengakses halaman ini sudah login
+    if($_SESSION['level']==""){
+        header("location:../login-p.php?info=login");
+    }
+
+?>
+
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -39,7 +50,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <a href="beranda.html" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="data_pengaduan.html" class="nav-link">Tulis Pengaduan</a>
+                        <a href="data_pengaduan.php" class="nav-link">Data Pengaduan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="data_pengaduan.html" class="nav-link">Data Tanggapan</a>
                     </li>
 
                     <li class="nav-item">
@@ -665,8 +679,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="../assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- AdminLTE App -->
     <script src="../assets/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="../assets/dist/js/demo.js"></script>
+  
 </body>
 
 </html>

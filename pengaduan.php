@@ -4,7 +4,7 @@
     include "php/koneksi/koneksi.php";
 
     if ($_SESSION['status'] != "login") {
-        header("location: login.php?pesan=belum_login");
+        header("location: login.php?info=belum_login");
     }
 
 ?>
@@ -148,10 +148,21 @@
                                                     <?php } ?>
                                                 </td>
                                                 <td class="text-center">
-                                                    <a href="" class="btn btn-info mx-2" data-toggle="modal"
-                                                    data-target="#modal-edit<?= $row['id_pengaduan']?>">
-                                                        <div class="fas fa-edit"></div>
-                                                    </a>
+
+                                                    <?php
+                                                        if ($row['status'] == "selesai") { 
+                                                            echo '<a href="" class="btn btn-info mx-2 disabled" data-toggle="modal"
+                                                            data-target="#modal-edit'. $row['id_pengaduan'] .'">
+                                                                <div class="fas fa-edit"></div>
+                                                            </a>';
+                                                        } else{
+                                                            echo '<a href="" class="btn btn-info mx-2" data-toggle="modal"
+                                                            data-target="#modal-edit'. $row['id_pengaduan'] .'">
+                                                                <div class="fas fa-edit"></div>
+                                                            </a>';
+                                                        }
+                                                    ?>
+
                                                     <a href="php/pengaduan/hapus_pengaduan.php?id_pengaduan=<?php echo $row['id_pengaduan']?>" class="btn btn-danger mx-2">
                                                         <div class="fas fa-trash"></div>
                                                     </a>

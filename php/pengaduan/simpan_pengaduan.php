@@ -24,7 +24,7 @@
                 $img = $rand.'_'.$filename;
                 $move = '../../uploads/'.$img;
                 move_uploaded_file($_FILES['foto']['tmp_name'], $move);
-                mysqli_query($koneksi, "INSERT INTO pengaduan VALUES('', '$tgl_pengaduan', '$nik', '$isi_laporan', '$img', '0')");
+                mysqli_query($koneksi, "INSERT INTO pengaduan VALUES(NULL, '$tgl_pengaduan', '$nik', '$isi_laporan', '$img', '0')");
                 echo "<script> alert ('Data Berhasil Tersimpan! '); document.location.href = '../../pengaduan.php';</script>";
 
             }else {

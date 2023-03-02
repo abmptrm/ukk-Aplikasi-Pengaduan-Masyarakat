@@ -39,6 +39,7 @@
             }else if($data['level']=="petugas"){
                 // buat session login dan username
                 $_SESSION['id_petugas'] = $data['id_petugas'];
+                $_SESSION['nama_petugas'] = $data['nama_petugas'];
                 $_SESSION['username'] = $username;
                 $_SESSION['password'] = $password;
                 $_SESSION['level'] = "petugas";
