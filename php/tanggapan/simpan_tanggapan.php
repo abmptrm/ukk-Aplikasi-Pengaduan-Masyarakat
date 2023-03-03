@@ -9,9 +9,14 @@
         $id_petugas = $_POST['id_petugas'];
         $status = $_POST['status'];
 
+        if (empty($tanggapan)) {
+            mysqli_query($koneksi, "UPDATE pengaduan SET status='$status' WHERE id_pengaduan='$id_pengaduan'");
+        } else {
 
-        mysqli_query($koneksi, "UPDATE pengaduan SET status='$status' WHERE id_pengaduan='$id_pengaduan'");
-        mysqli_query($koneksi, "INSERT INTO tanggapan VALUES (NULL, '$id_pengaduan', '$tgl_tanggapan', '$tanggapan', '$id_petugas')");
+            mysqli_query($koneksi, "UPDATE pengaduan SET status='$status' WHERE id_pengaduan='$id_pengaduan'");
+            mysqli_query($koneksi, "INSERT INTO tanggapan VALUES (NULL, '$id_pengaduan', '$tgl_tanggapan', '$tanggapan', '$id_petugas')");
+        }
+
 
         header('location: ../../petugas/data_pengaduan.php');
 

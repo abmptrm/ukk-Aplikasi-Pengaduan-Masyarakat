@@ -47,25 +47,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                 <ul class="navbar-nav text-center" style="font-size:17px">
                     <li class="nav-item">
-                        <a href="beranda.html" class="nav-link">Home</a>
+                        <a href="beranda.php" class="nav-link active">Home</a>
                     </li>
                     <li class="nav-item">
                         <a href="data_pengaduan.php" class="nav-link">Data Pengaduan</a>
                     </li>
                     <li class="nav-item">
-                        <a href="data_pengaduan.html" class="nav-link">Data Tanggapan</a>
+                        <a href="data_tanggapan.php" class="nav-link">Data Tanggapan</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="data_pengaduan.html" class="nav-link">Generata Laporan</a>
+                        <a href="laporan.php" class="nav-link">Generata Laporan</a>
                     </li>
 
                 </ul>
 
                 <div class="nav-item">
-                    <a class="nav-link" href="login.html">
-                        <i class="fas fa-user"></i>
-                        LOGIN
+                    <a class="nav-link bg-danger font-weight-bold rounded" href="../logout.php">
+                        <i class="fas fa-sign-out-alt pr-1"></i>
+                        LOGOUT
                     </a>
                 </div>
             </div>
@@ -101,7 +101,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="card-header">
                                     <h5 class="card-title m-0" style="font-size:30px">Home</h5>
                                     
+                                    
                                 </div>
+
 
                                 <div class="card-body">
                                     <div class="row">

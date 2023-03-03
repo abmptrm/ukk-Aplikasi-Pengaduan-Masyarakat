@@ -50,11 +50,11 @@
                         <a href="data_pengaduan.php" class="nav-link">Data Pengaduan</a>
                     </li>
                     <li class="nav-item">
-                        <a href="data_tanggapan.php" class="nav-link active">Data Tanggapan</a>
+                        <a href="data_tanggapan.php" class="nav-link">Data Tanggapan</a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="laporan.php" class="nav-link">Generata Laporan</a>
+                        <a href="laporan.php " class="nav-link active">Generata Laporan</a>
                     </li>
 
                 </ul>
@@ -99,71 +99,60 @@
                                     <div class="card-title">
                                         <h5 class=" m-0" style="font-size:30px">Data Tanggapan</h5>
                                     </div>
-                                    <!-- <div class="card-tools">
-                                        <button type="button" class="btn btn-success px-4" data-toggle="modal"
-                                            data-target="#modal-tambah"><i class="fas fa-plus"></i>&ensp;Tambah Pengaduan
-                                        </button>
-                                    </div> -->
+                                    <div class="card-tools">
+                                        <a class="nav-link bg-primary font-weight-bold rounded" href="print.php">
+                                            <i class="fas fa-print"></i>
+                                            PRINT LAPORAN
+                                        </a>
+                                    </div>
                                 </div>
                                 <div class="card-body">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th style="width: 10px">#</th>
-                                                <th style="width: 150px">Foto</th>
+                                                <th style="width: 120px">Foto</th>
+                                                <th>Isi Pengaduan</th>
                                                 <th>Isi Tanggapan</th>
+                                                <th style="width: 100px">Tanggal Pengaduan</th>
+                                                <th style="width: 100px">Tanggal Tanggapan</th>
                                                 <th>Status</th>
-                                                <th style="width: 200px">Tanggal Pengaduan</th>
-                                                <th style="width: 150px">Nama Petugas</th>
+                                                <th style="width: 100px">Nama Petugas</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                            <?php       
-                                                $no = 1; 
-                                                $query = "SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan = pengaduan.id_pengaduan INNER JOIN petugas ON tanggapan.id_petugas = petugas.id_petugas ";
-
-                                                $result = mysqli_query($koneksi, $query);
-
-                                                while ($row = mysqli_fetch_assoc($result)) {   
-                                                
+                                        <?php
+                                            $no = 1;
+                                            include "../php/koneksi/koneksi.php";
+                                            $catatan    =mysqli_query($koneksi, "SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan = pengaduan.id_pengaduan INNER JOIN petugas ON tanggapan.id_petugas = petugas.id_petugas ");
+                                            while($d = mysqli_fetch_array($catatan)){
                                             ?>
-
                                             <tr>
-                                                <td><?= $no++; ?></td>
+                                                <td><?php echo $no++; ?></td>
                                                 <td class="text-center">
-                                                    <img data-enlargable src="../uploads/<?= $row['foto'] ?>" style="border:#007BFF solid 3px; border-radius:15px; " width="200"><br>
-                                                    <a type="button" data-toggle="modal" data-target="#modalviewimage<?= $row['id_pengaduan'] ?>" class="btn btn-sm btn-primary mt-2 px-3" onclick="ShowDetailImage()">
-                                                        <i class="fas fa-search-plus"></i> Lihat Gambar 
-                                                    </a>
-                                                    
+                                                <img src="../uploads/<?=$d['foto']?>" width="150">
                                                 </td>
-                                                <td><?= $row['tanggapan'] ?></td>
+                                                <td><?=$d['isi_laporan']?></td>
+                                                <td><?=$d['tanggapan']?></td>
+                                                <td class="text-center"><?=$d['tgl_pengaduan']?></td>
+                                                <td class="text-center"><?=$d['tgl_tanggapan']?></td>
                                                 <td class="text-center ">
-                                                    <?php if ($row['status'] == '0') { ?>
-                                                        <span class="badge bg-warning">Menunggu</span>
-                                                    <?php } else if ($row['status'] == 'proses') { ?>
-                                                        <span class="badge bg-primary">Proses</span>
-                                                    <?php } else if ($row['status'] == 'tolak') { ?>
-                                                        <span class="badge bg-danger">Tolak</span>
-                                                    <?php } else { ?>
-                                                        <span class="badge bg-success">Selesai</span>
-                                                    <?php } ?>
+                                                <?php if ($d['status'] == '0') { ?>
+                                                    <span class="badge bg-warning">Menunggu</span>
+                                                <?php } else if ($d['status'] == 'proses') { ?>
+                                                    <span class="badge bg-primary">Proses</span>
+                                                <?php } else if ($d['status'] == 'tolak') { ?>
+                                                    <span class="badge bg-danger">Tolak</span>
+                                                <?php } else { ?>
+                                                    <span class="badge bg-success">Selesai</span>
+                                                <?php } ?>
                                                 </td>
-                                                <td class="text-center "><?= $row['tgl_pengaduan'] ?></td>
-                                                
-                                                <td class="text-center">
-                                                    <?= $row['username'] ?>
-
-
-                                                </td>
+                                                <td class="text-center"><?=$d['nama_petugas']?><br>(<?= $d['level']?>)</td>
                                             </tr>
-
                                             
-                                            
-
-                                            <?php
-                                                }
+                                            <?php 
+                                            }
                                             ?>
 
 

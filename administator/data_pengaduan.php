@@ -42,7 +42,7 @@ if ($_SESSION['level'] == "") {
 
 
                 <ul class="navbar-nav text-center" style="font-size:17px">
-                    <li class="nav-item">
+                    <li  i class="nav-item">
                         <a href="beranda.php" class="nav-link">Home</a>
                     </li>
                     <li class="nav-item">
@@ -50,6 +50,10 @@ if ($_SESSION['level'] == "") {
                     </li>
                     <li class="nav-item">
                         <a href="data_tanggapan.php" class="nav-link">Data Tanggapan</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="laporan.php" class="nav-link">Generata Laporan</a>
                     </li>
 
                 </ul>
@@ -169,7 +173,7 @@ if ($_SESSION['level'] == "") {
                                                                 </button>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form method="post" action="../php/tanggapan/simpan_tanggapan.php" enctype="multipart/form-data">
+                                                                <form method="post" action="../php/tanggapan/simpan_tanggapan-admin.php" enctype="multipart/form-data">
                                                                     <div class="card-body">
                                                                         <input type="hidden" name="id_pengaduan" value="<?= $row['id_pengaduan']; ?>">
 

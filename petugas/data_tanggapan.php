@@ -1,12 +1,12 @@
 <?php
-    session_start();
+session_start();
 
-    include "../php/koneksi/koneksi.php";
+include "../php/koneksi/koneksi.php";
 
-    // cek apakah yang mengakses halaman ini sudah login
-    if($_SESSION['level']==""){
-        header("location:../login-p.php?info=login");
-    }
+// cek apakah yang mengakses halaman ini sudah login
+if ($_SESSION['level'] == "") {
+    header("location:../login-p.php?info=login");
+}
 
 ?>
 
@@ -19,8 +19,7 @@
     <title>Aplikasi Pengaduan Masyarakat</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="../assets/plugins/fontawesome-free/css/all.min.css">
     <!-- Theme style -->
@@ -57,7 +56,7 @@
 
                 <div class="nav-item">
                     <a class="nav-link bg-danger font-weight-bold rounded" href="../logout.php">
-                    <i class="fas fa-sign-out-alt pr-1"></i>
+                        <i class="fas fa-sign-out-alt pr-1"></i>
                         LOGOUT
                     </a>
                 </div>
@@ -75,7 +74,7 @@
                             <h1 class="m-0">Aplikasi Pengaduan Masyarakat</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
-                            
+
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -114,121 +113,122 @@
                                         </thead>
                                         <tbody>
 
-                                            <?php       
-                                                $no = 1; 
-                                                $query = "SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan = pengaduan.id_pengaduan INNER JOIN petugas ON tanggapan.id_petugas = petugas.id_petugas WHERE level='petugas'";
+                                            <?php
+                                            $no = 1;
+                                            $query = "SELECT * FROM tanggapan INNER JOIN pengaduan ON tanggapan.id_pengaduan = pengaduan.id_pengaduan INNER JOIN petugas ON tanggapan.id_petugas = petugas.id_petugas";
 
-                                                $result = mysqli_query($koneksi, $query);
+                                            $result = mysqli_query($koneksi, $query);
 
-                                                while ($row = mysqli_fetch_assoc($result)) {   
-                                                
+                                            while ($row = mysqli_fetch_assoc($result)) {
+
                                             ?>
 
-                                            <tr>
-                                                <td><?= $no++; ?></td>
-                                                <td class="text-center">
-                                                    <img data-enlargable src="../uploads/<?= $row['foto'] ?>" style="border:#007BFF solid 3px; border-radius:15px; " width="200"><br>
-                                                    <a type="button" data-toggle="modal" data-target="#modalviewimage<?= $row['id_pengaduan'] ?>" class="btn btn-sm btn-primary mt-2 px-3" onclick="ShowDetailImage()">
-                                                        <i class="fas fa-search-plus"></i> Lihat Gambar 
-                                                    </a>
-                                                    
-                                                </td>
-                                                <td><?= $row['tanggapan'] ?></td>
-                                                <td class="text-center "><?= $row['tgl_pengaduan'] ?></td>
-                                                
-                                                <td class="text-center">
-                                                    <?= $row['username'] ?>
+                                                <tr>
+                                                    <td><?= $no++; ?></td>
+                                                    <td class="text-center">
+                                                        <img data-enlargable src="../uploads/<?= $row['foto'] ?>" style="border:#007BFF solid 3px; border-radius:15px; " width="200"><br>
+                                                        <a type="button" data-toggle="modal" data-target="#modalviewimage<?= $row['id_pengaduan'] ?>" class="btn btn-sm btn-primary mt-2 px-3" onclick="ShowDetailImage()">
+                                                            <i class="fas fa-search-plus"></i> Lihat Gambar
+                                                        </a>
+
+                                                    </td>
+                                                    <td><?= $row['tanggapan'] ?></td>
+                                                    <td class="text-center "><?= $row['tgl_pengaduan'] ?></td>
+
+                                                    <td class="text-center">
+                                                        <?= $row['username'] ?>
 
 
-                                                </td>
-                                            </tr>
+                                                    </td>
+                                                </tr>
 
-                                            
-                                            
+
+
 
                                             <?php
-                                                }
+                                            }
                                             ?>
 
 
-                                            
 
-                                            
+
+
                                         </tbody>
                                     </table>
 
                                 </div>
                                 <div class="card-footer">
-                                    
+
                                 </div>
                             </div>
                             <!-- card------ -->
 
-      
+
                             <!-- MODAL VIEW IMAGE -->
-                            
+
                             <?php
-                                include '../php/koneksi/koneksi.php';
+                            include '../php/koneksi/koneksi.php';
 
-                                $query = "SELECT * FROM pengaduan";
+                            $query = "SELECT * FROM pengaduan";
 
-                                $result = mysqli_query($koneksi, $query);
+                            $result = mysqli_query($koneksi, $query);
 
-                                // Lakukan perulangan untuk membaca setiap baris hasil query
-                                while ($row = mysqli_fetch_assoc($result)) {   
+                            // Lakukan perulangan untuk membaca setiap baris hasil query
+                            while ($row = mysqli_fetch_assoc($result)) {
                             ?>
 
-                            <div class="modal fade" id="modalviewimage<?= $row['id_pengaduan'] ?>" aria-hidden="true">
-                                
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">Foto Pengaduan</h4>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                    <div class="modal-body">
-                                        <div class="text-center">
-                                            <img src="../uploads/<?= $row['foto'] ?>" style="border:#007BFF solid 3px; border-radius:15px; width:100%;">
-                                            </div><hr>
-                                            <div class="card-body">
-                                            <div class="text-left">
-                                                <ul>
-                                                    <li><b>Tanggal Pengaduan :</b> <?= $row['tgl_pengaduan']?></li>
-                                                    <li><b>Isi Pengaduan : </b> <?= $row['isi_laporan']?></li>
-                                                    <li><b>Status Pengaduan : </b> 
-                                                        <?php if ($row['status'] == '0') { ?>
-                                                        <span class="badge bg-warning">Menunggu</span>
-                                                        <?php } else if ($row['status'] == 'proses') { ?>
-                                                            <span class="badge bg-primary">Di Proses</span>
-                                                        <?php } else if ($row['status'] == 'tolak') { ?>
-                                                            <span class="badge bg-danger">Di Tolak</span>
-                                                        <?php } else { ?>
-                                                            <span class="badge bg-success">Selesai</span>
-                                                        <?php } ?>
-                                                    </li>
-                                                    
+                                <div class="modal fade" id="modalviewimage<?= $row['id_pengaduan'] ?>" aria-hidden="true">
 
-
-                                                </ul>
-                                                
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Foto Pengaduan</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
                                             </div>
-                                        </div>                                
-                                    </div>
-                                        <div class="modal-footer justify-content-between"> 
-                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Keluar</button>
+                                            <div class="modal-body">
+                                                <div class="text-center">
+                                                    <img src="../uploads/<?= $row['foto'] ?>" style="border:#007BFF solid 3px; border-radius:15px; width:100%;">
+                                                </div>
+                                                <hr>
+                                                <div class="card-body">
+                                                    <div class="text-left">
+                                                        <ul>
+                                                            <li><b>Tanggal Pengaduan :</b> <?= $row['tgl_pengaduan'] ?></li>
+                                                            <li><b>Isi Pengaduan : </b> <?= $row['isi_laporan'] ?></li>
+                                                            <li><b>Status Pengaduan : </b>
+                                                                <?php if ($row['status'] == '0') { ?>
+                                                                    <span class="badge bg-warning">Menunggu</span>
+                                                                <?php } else if ($row['status'] == 'proses') { ?>
+                                                                    <span class="badge bg-primary">Di Proses</span>
+                                                                <?php } else if ($row['status'] == 'tolak') { ?>
+                                                                    <span class="badge bg-danger">Di Tolak</span>
+                                                                <?php } else { ?>
+                                                                    <span class="badge bg-success">Selesai</span>
+                                                                <?php } ?>
+                                                            </li>
+
+
+
+                                                        </ul>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer justify-content-between">
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Keluar</button>
+                                            </div>
                                         </div>
                                     </div>
+
                                 </div>
-                                
-                            </div>
                             <?php } ?>
 
-                           
-                        
 
-                            
+
+
+
 
                         </div>
                         <!-- /.col-md-12 -->
@@ -276,7 +276,7 @@
     <!-- AdminLTE for demo purposes -->
     <!-- <script src="../assets/dist/js/demo.js"></script> -->
 
-    
+
 </body>
 
 </html>
