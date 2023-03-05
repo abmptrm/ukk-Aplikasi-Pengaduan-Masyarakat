@@ -28,9 +28,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <body class="hold-transition layout-top-nav">
   <div class="wrapper">
 
-    <h4 class="text-center py-5">Laporan Aplikasi Pengaduan Masyarakat</h4>
+    <h4 class="text-center py-5 pt-xl-5">Laporan Aplikasi Pengaduan Masyarakat</h4>
 
-    <table class="table">
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th style="width: 10px">#</th>
@@ -61,13 +61,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <td class="text-center"><?=$d['tgl_tanggapan']?></td>
             <td class="text-center ">
               <?php if ($d['status'] == '0') { ?>
-                  <span class="badge bg-warning">Menunggu</span>
+                  <span class="font-weight-bold text-warning">Menunggu</span>
               <?php } else if ($d['status'] == 'proses') { ?>
-                  <span class="badge bg-primary">Proses</span>
+                  <span class="font-weight-bold text-primary">Proses</span>
               <?php } else if ($d['status'] == 'tolak') { ?>
-                  <span class="badge bg-danger">Tolak</span>
+                  <span class="font-weight-bold text-danger">Tolak</span>
               <?php } else { ?>
-                  <span class="badge bg-success">Selesai</span>
+                  <span class="font-weight-bold text-success">Selesai</span>
               <?php } ?>
             </td>
             <td class="text-center"><?=$d['nama_petugas']?><br>(<?= $d['level']?>)</td>
@@ -77,47 +77,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
         ?>
       </tbody>
+      <tfoot>
+        <h4>
+          <?= date('Y/m/d')?>
+        </h4>
+          
+      </tfoot>
     </table>     
 
 
-    <!-- /.navbar -->
-
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper pt-5">
-      <!-- /.content-header -->
-
-      <!-- Main content -->
-      <div class="content">
-        <div class="container">
-          <div class="row">
-            <!-- /.col-md-6 -->
-            <div class="card">
-              <br>
-              <div class="card-header">
-                
-                <h3 class="text-center">Laporan Perngaduan Masyarakat</h3>
-              </div>
-              <div class="card-body">
-                             
-              </div>
-              <div class="card-footer">
-              <h5>Tanggal Laporan : &ensp;<?=date("Y-m-d")?></h5> 
-              </div>
-            </div>
-            <div class="col-lg-12">
-
-
-              
-
-            </div>
-            <!-- /.col-md-6 -->
-          </div>
-          <!-- /.row -->
-        </div><!-- /.container-fluid -->
-      </div>
-      <!-- /.content -->
-    </div>
-    <!-- /.content-wrapper -->
+    
 
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
@@ -138,7 +107,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- AdminLTE App -->
   <script src="../assets/dist/js/adminlte.min.js"></script>
   <script>
-    // window.addEventListener("load", window.print());
+    window.addEventListener("load", window.print());
  </script>
 </body>
 </html>

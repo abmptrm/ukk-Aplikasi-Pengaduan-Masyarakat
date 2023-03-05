@@ -184,7 +184,7 @@ if ($_SESSION['level'] == "") {
                                                                             <label>Verifikasi</label>
                                                                             <select class="form-control" name="status">
                                                                                 <option value="proses">Proses</option>
-                                                                                <option value="ditolak">Tolak</option>
+                                                                                <option value="tolak">Tolak</option>
                                                                                 <option value="selesai">Selesai</option>
                                                                             </select>
                                                                         </div>
