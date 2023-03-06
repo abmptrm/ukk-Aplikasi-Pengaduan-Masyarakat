@@ -60,24 +60,40 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Aplikasi Pengaduan Masyarakat</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
 
             <!-- Main content -->
             <div class="content">
                 <div class="container">
-                    <div class="row d-flex justify-content-center align-items-center" style="padding-top:60px;">
+                    <div class="row">
                         
                         <!-- /.col-md-12 -->
-                        <div class="col-lg-6">
-                            <div class="content-1">
-                                <h1 class="display-4 font-weight-bold">Aplikasi Pengaduan<br>Masyarakat</h1>
-                                <p>Aplikasi pengaduan masyarakat adalah sebuah aplikasi yang dirancang untuk <br> memudahkan masyarakat dalam melaporkan segala jenis keluhan atau <br> pengaduan terkait pelayanan publik, tindak kejahatan, maupun masalah <br> sosial kepada pihak berwenang. </p>
-                                <a href="pengaduan.php" class="btn btn-primary rounded py-2 px-3 " style="font-size: 1.1rem;">Tulis Pengaduan</a>
-                            </div>
-                        </div>
+                        <div class="col-lg-12">
 
-                        <div class="col-lg-6">
-                            <img src="assets/image/Connected world-amico.svg" alt="" width="450">
+                            <div class="card card-primary card-outline">
+                                <div class="card-header">
+                                    <h5 class="card-title m-0" style="font-size:30px">Home</h5>
+                                </div>
+                                <div class="card-body">
+                                    <h6 class="card-title mb-3" style="font-size:25px">Selamat Datang <b><?php echo ucwords($_SESSION['username']); ?></b> Di Aplikasi Pengaduan Masyarakat</h6>
+
+                                    <p class="card-text">Laporkan masalah lingkungan Anda dengan mudah dan efisien. Aplikasi pengaduan kami akan membantu memastikan bahwa masalah Anda mendapat perhatian yang layak.</p>
+                                    <a href="pengaduan.php" class="btn btn-primary px-5 ">Mulai</a>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.col-md-12 -->
                     </div>
@@ -88,16 +104,20 @@
         </div>
         <!-- /.content-wrapper -->
 
-        
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
 
         <!-- Main Footer -->
         <footer class="main-footer">
-           <!-- To the right -->
-           <div class="float-right d-none d-sm-inline">
-            Anything you want
+            <!-- To the right -->
+            <div class="float-right d-none d-sm-inline">
+                Anything you want
             </div>
             <!-- Default to the left -->
-            <strong>Copyright &copy; 2023 <span class="text-primary">Ario Bimo M</span>.</strong> All rights
+            <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights
             reserved.
         </footer>
     </div>
