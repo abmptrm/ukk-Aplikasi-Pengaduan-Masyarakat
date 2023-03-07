@@ -163,7 +163,7 @@
                                                         }
                                                     ?>
 
-                                                    <a href="php/pengaduan/hapus_pengaduan.php?id_pengaduan=<?php echo $row['id_pengaduan']?>" class="btn btn-danger mx-2">
+                                                    <a href="php/pengaduan/hapus_pengaduan.php?id_pengaduan=<?=$row['id_pengaduan']?>" class="btn btn-danger mx-2">
                                                         <div class="fas fa-trash"></div>
                                                     </a>
 

@@ -13,10 +13,17 @@
     if (file_exists($lokasi)) {
         unlink('../../uploads/'.$namaFile);
     }
-
-
+    
     // Hapus Data
-    mysqli_query($koneksi, "DELETE FROM pengaduan WHERE id_pengaduan='$id_pengaduan'");
+    $cek_tanggapan = mysqli_query($koneksi, "SELECT * FROM tanggapan WHERE id_pengaduan='$id_pengaduan'");
+
+    if ($cek_tanggapan) {
+        mysqli_query($koneksi, "DELETE FROM tanggapan WHERE id_pengaduan='$id_pengaduan'");
+        mysqli_query($koneksi, "DELETE FROM pengaduan WHERE id_pengaduan='$id_pengaduan'");
+    } else {
+        mysqli_query($koneksi, "DELETE FROM pengaduan WHERE id_pengaduan='$id_pengaduan'");
+    }
+
 
     
     echo "<script> alert ('Data Berhasil Di Hapus! '); document.location.href = '../../pengaduan.php';</script>";
