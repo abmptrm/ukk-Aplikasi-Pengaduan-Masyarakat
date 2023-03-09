@@ -26,6 +26,6 @@
 
 
     
-    echo "<script> alert ('Data Berhasil Di Hapus! '); document.location.href = '../../pengaduan.php';</script>";
+    echo "<script>document.location.href = '../../pengaduan.php';</script>";
 
 ?>

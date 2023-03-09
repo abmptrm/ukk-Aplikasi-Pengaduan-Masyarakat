@@ -519,7 +519,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         <?php
                                             include '../php/koneksi/koneksi.php';
 
-                                            $cnt = mysqli_query($koneksi, "SELECT COUNT(1) FROM pengaduan WHERE status='ditolak'");
+                                            $cnt = mysqli_query($koneksi, "SELECT COUNT(1) FROM pengaduan WHERE status='tolak'");
                                             // echo $cnt;
                                         
                                             $row = mysqli_fetch_array($cnt);

@@ -65,11 +65,12 @@
             <!-- Main content -->
             <div class="content">
                 <div class="container">
-                    <div class="row d-flex justify-content-center align-items-center" style="padding-top:60px;">
+                    <div class="row d-flex justify-content-center align-items-center" style="padding-top:50px;">
                         
                         <!-- /.col-md-12 -->
                         <div class="col-lg-6">
                             <div class="content-1">
+                                <h3 class="font-weight-normal">Halo, <?= ucfirst($_SESSION['nama'])?></h3>
                                 <h1 class="display-4 font-weight-bold">Aplikasi Pengaduan<br>Masyarakat</h1>
                                 <p>Aplikasi pengaduan masyarakat adalah sebuah aplikasi yang dirancang untuk <br> memudahkan masyarakat dalam melaporkan segala jenis keluhan atau <br> pengaduan terkait pelayanan publik, tindak kejahatan, maupun masalah <br> sosial kepada pihak berwenang. </p>
                                 <a href="pengaduan.php" class="btn btn-primary rounded py-2 px-3 " style="font-size: 1.1rem;">Tulis Pengaduan</a>

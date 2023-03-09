@@ -155,17 +155,42 @@
                                                             data-target="#modal-edit'. $row['id_pengaduan'] .'">
                                                                 <div class="fas fa-edit"></div>
                                                             </a>';
-                                                        } else{
+                                                        } else if ($row['status'] == "proses") {
+                                                            echo '<a href="" class="btn btn-info mx-2 disabled" data-toggle="modal"
+                                                            data-target="#modal-edit'. $row['id_pengaduan'] .'">
+                                                                <div class="fas fa-edit"></div>
+                                                            </a>
+                                                            <a class="btn btn-danger mx-2 disabled" onclick="msg_hapus()">
+                                                                <div class="fas fa-trash"></div>
+                                                            </a>';
+                                                        }else{
                                                             echo '<a href="" class="btn btn-info mx-2" data-toggle="modal"
                                                             data-target="#modal-edit'. $row['id_pengaduan'] .'">
                                                                 <div class="fas fa-edit"></div>
+                                                            </a>
+                                                            <a class="btn btn-danger mx-2" onclick="msg_hapus()">
+                                                                <div class="fas fa-trash"></div>
                                                             </a>';
                                                         }
                                                     ?>
 
-                                                    <a href="php/pengaduan/hapus_pengaduan.php?id_pengaduan=<?=$row['id_pengaduan']?>" class="btn btn-danger mx-2">
-                                                        <div class="fas fa-trash"></div>
-                                                    </a>
+                                                    
+
+                                                    <script>
+
+                                                        function msg_hapus() {
+                                                            let data_hapus = confirm('Apakah kamu yakin ingin menghapus ?');
+    
+                                                            if (data_hapus) {
+                                                                document.location.href = 'php/pengaduan/hapus_pengaduan.php?id_pengaduan=<?=$row['id_pengaduan']?>';
+                                                                alert ('Data Berhasil Di Hapus!');
+                                                            } else {
+                                                                document.location.href = 'pengaduan.php';
+                                                                alert ('Data Gagal Di Hapus! ');
+                                                            }
+                                                        }
+
+                                                    </script>
 
 
                                                 </td>

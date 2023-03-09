@@ -107,7 +107,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- AdminLTE App -->
   <script src="../assets/dist/js/adminlte.min.js"></script>
   <script>
-    window.addEventListener("load", window.print());
+    
+    window.addEventListener("load", function() {
+      window.print();
+
+    });
  </script>
 </body>
 </html>

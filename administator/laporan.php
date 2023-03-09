@@ -104,6 +104,10 @@
                                             <i class="fas fa-print"></i>
                                             PRINT LAPORAN
                                         </a>
+
+                                       
+
+
                                     </div>
                                 </div>
                                 <div class="card-body">
