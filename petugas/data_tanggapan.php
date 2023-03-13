@@ -107,6 +107,7 @@ if ($_SESSION['level'] == "") {
                                                 <th style="width: 10px">#</th>
                                                 <th style="width: 150px">Foto</th>
                                                 <th>Isi Tanggapan</th>
+                                                <th>Status</th>
                                                 <th style="width: 200px">Tanggal Pengaduan</th>
                                                 <th style="width: 150px">Nama Petugas</th>
                                             </tr>
@@ -133,6 +134,17 @@ if ($_SESSION['level'] == "") {
 
                                                     </td>
                                                     <td><?= $row['tanggapan'] ?></td>
+                                                    <td class="text-center ">
+                                                        <?php if ($row['status'] == '0') { ?>
+                                                            <span class="badge bg-warning">Menunggu</span>
+                                                        <?php } else if ($row['status'] == 'proses') { ?>
+                                                            <span class="badge bg-primary">Proses</span>
+                                                        <?php } else if ($row['status'] == 'tolak') { ?>
+                                                            <span class="badge bg-danger">Tolak</span>
+                                                        <?php } else { ?>
+                                                            <span class="badge bg-success">Selesai</span>
+                                                        <?php } ?>
+                                                    </td>
                                                     <td class="text-center "><?= $row['tgl_pengaduan'] ?></td>
 
                                                     <td class="text-center">
